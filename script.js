@@ -24,3 +24,6 @@ const images = [
 
 console.log(images)
 
+const carousel=document.querySelector('.carousel-container');
+
+carousel.innerHTML+='<img src="img/01.webp" alt="img">'

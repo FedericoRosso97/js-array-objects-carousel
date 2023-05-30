@@ -9,7 +9,7 @@
     align-items: center;
     height: 100vh;
     background-color: blue;
-
+    position: relative;
 }
 
 button{
@@ -19,4 +19,18 @@ button{
     border: none;
     background-color: lightblue;
 
+}
+.button-right{
+    position: absolute;
+    right: 0px;
+}
+
+.button-left{
+    position: absolute;
+    left: 0px;
+}
+
+img{
+    object-fit:contain ;
+    width: 100%;
 }

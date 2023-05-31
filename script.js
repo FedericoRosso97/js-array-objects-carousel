@@ -97,8 +97,8 @@ prevButton.addEventListener('click', function(){
    
     document.querySelector('.carousel-item.visible').classList.add('hidden');
     document.querySelector('.carousel-item.visible').classList.remove('visible');
-   document.querySelector('.carousel-item.hidden').classList.add('visible');
-   document.querySelector('.carousel-item.hidden').classList.remove('hidden');
+    document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
+   document.querySelectorAll('.carousel-item')[activeIndex].classList.remove('hidden');
 });
 
 const nextButton = document.querySelector('.button-right');
@@ -109,6 +109,8 @@ nextButton.addEventListener('click', function(){
         activeIndex = activeIndex + 1;
     }
 
-    document.querySelector('div.carousel-item.visible').classList.remove('visible');
+    document.querySelector('.carousel-item.visible').classList.add('hidden');
+    document.querySelector('.carousel-item.visible').classList.remove('visible');
     document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
+   document.querySelectorAll('.carousel-item')[activeIndex].classList.remove('hidden');
 });

@@ -84,7 +84,7 @@ for ( let i = 0 ; i < imagesList.length ; i++ ){
 }
 
 document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
-//document.querySelectorAll('.carousel-item.visible')[activeIndex].classList.remove('hidden');
+document.querySelectorAll('.carousel-item.visible')[activeIndex].classList.remove('hidden');
 
 const prevButton = document.querySelector('.button-left');
 prevButton.addEventListener('click', function(){
@@ -94,8 +94,9 @@ prevButton.addEventListener('click', function(){
         activeIndex = activeIndex - 1;
     }
 
-    document.querySelector('.carousel-item.visible').classList.remove('visible');
+   
     document.querySelector('.carousel-item.visible').classList.add('hidden');
+    document.querySelector('.carousel-item.visible').classList.remove('visible');
    document.querySelector('.carousel-item.hidden').classList.add('visible');
    document.querySelector('.carousel-item.hidden').classList.remove('hidden');
 });

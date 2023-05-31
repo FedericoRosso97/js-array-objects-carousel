@@ -26,29 +26,34 @@ const images = [
     }
 ];
 
-console.log(images)
+let arrayIndex=0;
+
+console.log(images[arrayIndex]);
 
 const carousel=document.querySelector('.carousel');
-/*carousel.classList.add('visible');*/
-carousel.innerHTML +=`
-<img src="${images[0].image}" alt="img">
-<h1>${images[0].title}</h1> 
-<p>${images[0].text}</p>`;
-//'<img src="img/01.webp" alt="img">';
 
+for(i=0;i<images.length;i++){
+    carousel.innerHTML +=`
+    <div class="item hidden">
+      <img src=${images[i].image}>
+    </div>`;
+}
+document.querySelector('.item').classList.add('visible');
+document.querySelector('.item').classList.remove('hidden');
+if (arrayIndex == images.length - 1 ) {
+    arrayIndex = 0;
+} else {
+    arrayIndex = arrayIndex + 1;
+}
+console.log(arrayIndex);
 const buttonRight=document.querySelector('.button-right');
 const buttonLeft=document.querySelector('.button-left');
 
-let imagesArray=['<img src="img/01.webp" alt="img">','<img src="img/02.webp" alt="img">','<img src="img/03.webp" alt="img">','<img src="img/04.webp" alt="img">','<img src="img/05.webp" alt="img">',]
-let arrayIndex=0;
 buttonRight.addEventListener('click',function(){
-  arrayIndex++;
-
-  carousel.innerHTML +=`<img src="${images[arrayIndex].image}" alt="img">
-                       <h1>${images[arrayIndex].title}</h1> 
-                        <p>${images[arrayIndex].text}</p>`;
-   
-                        /*document.querySelector('.carousel').classList.remove('visible')
-   document.querySelector('.carousel').classList.add('invisible')*/
+  
+   document.querySelector('.item.visible').classList.remove('visible');
+   document.querySelector('.item.hidden').classList.add('visible');
+   document.querySelector('.item.hidden').classList.remove('hidden');
  
+
 })

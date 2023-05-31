@@ -84,7 +84,7 @@ for ( let i = 0 ; i < imagesList.length ; i++ ){
 }
 
 document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
-document.querySelectorAll('.carousel-item.visible')[activeIndex].classList.remove('hidden');
+//document.querySelectorAll('.carousel-item.visible')[activeIndex].classList.remove('hidden');
 
 const prevButton = document.querySelector('.button-left');
 prevButton.addEventListener('click', function(){

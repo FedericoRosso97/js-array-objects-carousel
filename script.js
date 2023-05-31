@@ -1,4 +1,4 @@
-const images = [
+const imagesList = [
     {
         image: 'img/01.webp',
         title: 'Marvel\'s Spiderman Miles Morale',
@@ -26,7 +26,7 @@ const images = [
     }
 ];
 
-let arrayIndex=0;
+/*let arrayIndex=3;
 
 console.log(images[arrayIndex]);
 
@@ -36,24 +36,78 @@ for(i=0;i<images.length;i++){
     carousel.innerHTML +=`
     <div class="item hidden">
       <img src=${images[i].image}>
+      <h1>${images[i].title}</h1>
+      <p>${images[i].text}</p>
     </div>`;
 }
 document.querySelector('.item').classList.add('visible');
 document.querySelector('.item').classList.remove('hidden');
-if (arrayIndex == images.length - 1 ) {
-    arrayIndex = 0;
-} else {
-    arrayIndex = arrayIndex + 1;
-}
+
 console.log(arrayIndex);
 const buttonRight=document.querySelector('.button-right');
 const buttonLeft=document.querySelector('.button-left');
 
 buttonRight.addEventListener('click',function(){
-  
+ 
+    if (arrayIndex == images.length - 1 ) {
+        arrayIndex = 0;
+    } else {
+        arrayIndex = arrayIndex + 1;
+    }
    document.querySelector('.item.visible').classList.remove('visible');
    document.querySelector('.item.hidden').classList.add('visible');
    document.querySelector('.item.hidden').classList.remove('hidden');
- 
-
 })
+buttonLeft.addEventListener('click',function(){
+    if (arrayIndex == images.length - 1 ) {
+        arrayIndex = 0;
+    } else {
+        arrayIndex = arrayIndex + 1;
+    }
+    
+    document.querySelector('.item.visible').classList.remove('visible');
+    document.querySelector('.item.hidden').classList.add('visible');
+    document.querySelector('.item.hidden').classList.remove('hidden');
+ })*/
+
+ const carouselElement = document.querySelector('div.carousel');
+console.log(carouselElement);
+
+let activeIndex = 0;
+
+for ( let i = 0 ; i < imagesList.length ; i++ ){
+    carouselElement.innerHTML +=
+    `<div class="carousel-item hidden">
+        <img src="${imagesList[i].image}" alt="Carousel slide image">
+        <p>${imagesList[i].title}</p>
+    </div>`;
+}
+
+document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
+document.querySelectorAll('.carousel-item.visible')[activeIndex].classList.remove('hidden');
+
+const prevButton = document.querySelector('.button-left');
+prevButton.addEventListener('click', function(){
+    if (activeIndex == 0 ) {
+        activeIndex = imagesList.length - 1;
+    } else {
+        activeIndex = activeIndex - 1;
+    }
+
+    document.querySelector('.carousel-item.visible').classList.remove('visible');
+    document.querySelector('.carousel-item.visible').classList.add('hidden');
+   document.querySelector('.carousel-item.hidden').classList.add('visible');
+   document.querySelector('.carousel-item.hidden').classList.remove('hidden');
+});
+
+const nextButton = document.querySelector('.button-right');
+nextButton.addEventListener('click', function(){
+    if (activeIndex == imagesList.length - 1 ) {
+        activeIndex = 0;
+    } else {
+        activeIndex = activeIndex + 1;
+    }
+
+    document.querySelector('div.carousel-item.visible').classList.remove('visible');
+    document.querySelectorAll('div.carousel-item')[activeIndex].classList.add('visible');
+});
